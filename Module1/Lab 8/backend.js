@@ -1,3 +1,3 @@
-function diceRoll() {
-    return Math.floor(Math.random() * 6) + 1;
+function diceRoll(numberOfFaces) {
+    return Math.floor(Math.random() * numberOfFaces) + 1;
 }
