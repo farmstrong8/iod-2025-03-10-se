@@ -1,5 +1,11 @@
 const { diceRoll } = require("./diceRoll.js");
 
+// Testing single example
+const result = diceRoll(6);
+if (result > 6 || result < 6) {
+    throw Error("Invalid dice result " + result);
+}
+
 // Unit tests - testing dice sides from 1 to 100
 for (let i = 1; i < 100; i++) {
     let testResult = diceRoll(i);
