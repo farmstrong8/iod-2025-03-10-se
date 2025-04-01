@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            async function handleSubmit(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const name = document.getElementById("name").value;
+
+                try {
+                    const response = await fetch(
+                        "http://localhost:3000/profile",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ name: name }),
+                        }
+                    );
+
+                    if (response.ok) {
+                        alert("Profile updated successfully!");
+                    } else {
+                        console.log(response);
+                        alert("Failed to update profile.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Error submitting the form.", error);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <!-- works like <a href="/index.html">Home</a> -->
+                <a href="/">Home</a>
+            </nav>
+        </header>
+
+        <main>
+            <form method="POST" onsubmit="handleSubmit(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="name" required />
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+
+        <footer>Copyright &copy; 2024</footer>
+    </body>
+</html>
