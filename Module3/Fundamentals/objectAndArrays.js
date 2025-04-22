@@ -94,11 +94,13 @@ const main = () => {
     const directorOne = {
         id: 1,
         name: "Test",
+        shortName: "T1", // new field added
     };
 
     const directorTwo = {
         id: 2,
         name: "Test",
+        shortName: "T2", // new field added
     };
 
     const apiCallTwo = [directorOne, directorTwo]; // array of director objects
@@ -113,6 +115,9 @@ const main = () => {
     const directorIds = apiCallTwo.map((director) => director.id); // map to get ids from director array
 
     const allIds2 = [...customerIds, ...directorIds]; // concatenate two arrays of ids
+
+    // log the concatenated array and all ids to the console
+    console.log(concatenatedArray); // log the concatenated array to the console
 };
 
 main();
